@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "org.siyana.app",
+    "sha256_cert_fingerprints": ["5A:DE:A1:46:6C:F7:C1:6B:E3:9A:82:32:51:35:1C:1F:1A:AC:91:0F:40:57:9E:E6:15:E2:B2:1F:63:EF:FF:04"]
+  }
+}]
