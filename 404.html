@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Siyana</title>
+  <!-- Aperçu des liens partagés (WhatsApp, etc.) -->
+  <meta property="og:site_name" content="Siyana">
+  <meta property="og:title" content="Siyana — la parole de nos imams">
+  <meta property="og:description" content="Ce contenu s'écoute et se lit dans l'application Siyana.">
+  <meta property="og:image" content="https://www.siyana.org/siyana-share.png">
+  <meta property="og:type" content="website">
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: #F5F1E8; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1F1E1B;
+      padding: 24px;
+    }
+    .card {
+      max-width: 420px; width: 100%; background: #FFFEFA; border: 1px solid #E4D8C2;
+      border-radius: 22px; padding: 32px 26px; text-align: center;
+      box-shadow: 0 6px 18px rgba(107, 90, 58, 0.10);
+    }
+    img.logo { width: 88px; height: 88px; border-radius: 20px; }
+    h1 { font-size: 21px; margin: 18px 0 8px; }
+    p { font-size: 15px; line-height: 1.55; color: #6E695F; margin: 0 0 22px; }
+    a.button {
+      display: block; padding: 14px; border-radius: 14px; text-decoration: none;
+      font-weight: 600; font-size: 15px; margin-top: 10px;
+    }
+    .primary { background: #59633B; color: #fff; }
+    .secondary { border: 1px solid #E4D8C2; color: #1F1E1B; background: #FFFEFA; }
+    .soon { font-size: 13px; color: #8E7240; margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="/siyana-logo.png" alt="Siyana" onerror="this.style.display='none'">
+    <h1 id="title">Ce contenu s'ouvre dans Siyana</h1>
+    <p id="text">Les prêches, conférences, cours et rappels partagés s'écoutent et se lisent dans l'application Siyana.</p>
+    <a class="button primary" id="open" href="#">Ouvrir dans l'application</a>
+    <a class="button secondary" href="/">Découvrir Siyana</a>
+    <div class="soon">Bientôt disponible sur Google Play.</div>
+  </div>
+  <script>
+    // Liens /preche/…, /conference/…, /cours/…, /rappel/… : bouton qui
+    // force l'ouverture dans l'app Android si elle est installée.
+    var path = window.location.pathname;
+    var known = /^\/(preche|conference|cours|rappel)\//.test(path);
+    var open = document.getElementById('open');
+    if (known) {
+      open.href = 'intent://www.siyana.org' + path +
+        '#Intent;scheme=https;package=org.siyana.app;end';
+    } else {
+      document.getElementById('title').textContent = 'Page introuvable';
+      document.getElementById('text').textContent =
+        "Cette page n'existe pas. Retrouvez Siyana depuis la page d'accueil.";
+      open.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
