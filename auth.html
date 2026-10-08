@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Siyana</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; padding: 24px; background: #F5F1E8; color: #1F1E1B;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+    .card { max-width: 420px; width: 100%; background: #FFFEFA; border: 1px solid #E4D8C2;
+      border-radius: 22px; padding: 32px 26px; text-align: center;
+      box-shadow: 0 6px 18px rgba(107, 90, 58, 0.10); }
+    img.logo { width: 84px; height: 84px; }
+    .brand { letter-spacing: 5px; font-size: 20px; margin: 6px 0 18px; }
+    h1 { font-size: 21px; margin: 6px 0 10px; }
+    p { font-size: 15px; line-height: 1.55; color: #6E695F; margin: 0 0 18px; }
+    .btn { display: block; width: 100%; padding: 14px; border: 0; border-radius: 14px;
+      text-decoration: none; font-weight: 600; font-size: 15px; cursor: pointer;
+      background: #59633B; color: #fff; margin-top: 8px; }
+    input { width: 100%; padding: 13px 14px; border: 1px solid #E4D8C2; border-radius: 12px;
+      font-size: 15px; margin-bottom: 10px; background: #fff; }
+    .error { color: #B64A4A; font-size: 14px; min-height: 20px; margin-bottom: 6px; }
+    .hidden { display: none; }
+    .spinner { width: 34px; height: 34px; border: 3px solid #E4D8C2; border-top-color: #59633B;
+      border-radius: 50%; margin: 10px auto 18px; animation: spin 0.9s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="/siyana-logo.png" alt="Siyana" onerror="this.style.display='none'">
+    <div class="brand">SIYANA</div>
+
+    <div id="loading"><div class="spinner"></div><p id="loadingText"></p></div>
+
+    <div id="message" class="hidden">
+      <h1 id="title"></h1>
+      <p id="text"></p>
+      <a id="openApp" class="btn hidden" href="#"></a>
+    </div>
+
+    <form id="resetForm" class="hidden">
+      <h1 id="resetTitle"></h1>
+      <p id="resetText"></p>
+      <input id="pw1" type="password" autocomplete="new-password">
+      <input id="pw2" type="password" autocomplete="new-password">
+      <div id="resetError" class="error"></div>
+      <button class="btn" type="submit" id="resetButton"></button>
+    </form>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script>
+    // Page d'action des e-mails de compte Siyana (8 oct) : confirmation de
+    // l'adresse, nouveau mot de passe. Textes par langue (fr par défaut) ;
+    // l'arabe s'ajoutera ici avec dir: 'rtl'.
+    var TEXTS = {
+      fr: {
+        dir: 'ltr',
+        loading: 'Un instant…',
+        verifiedTitle: 'Votre adresse est confirmée',
+        verifiedText: 'Merci ! Vous pouvez retourner dans l\'application Siyana.',
+        openApp: 'Ouvrir Siyana',
+        invalidTitle: 'Ce lien n\'est plus valable',
+        invalidText: 'Il a expiré ou a déjà été utilisé. Ouvrez Siyana pour en recevoir un nouveau.',
+        resetTitle: 'Nouveau mot de passe',
+        resetText: 'Choisissez un nouveau mot de passe pour le compte ',
+        pw1: 'Nouveau mot de passe',
+        pw2: 'Confirmez le mot de passe',
+        resetButton: 'Enregistrer',
+        tooShort: 'Le mot de passe doit contenir au moins 6 caractères.',
+        mismatch: 'Les deux mots de passe ne sont pas identiques.',
+        weak: 'Ce mot de passe est trop faible, choisissez-en un autre.',
+        resetDoneTitle: 'Mot de passe modifié',
+        resetDoneText: 'Vous pouvez vous connecter à Siyana avec votre nouveau mot de passe.',
+        recoverTitle: 'Adresse rétablie',
+        recoverText: 'Votre ancienne adresse e-mail a été rétablie sur votre compte.',
+        unknownTitle: 'Lien incomplet',
+        unknownText: 'Ce lien est incomplet. Ouvrez Siyana pour recommencer.'
+      }
+    };
+
+    var params = new URLSearchParams(window.location.search);
+    var mode = params.get('mode');
+    var code = params.get('oobCode');
+    var apiKey = params.get('apiKey');
+    var t = TEXTS[params.get('lang')] || TEXTS.fr;
+    document.documentElement.dir = t.dir;
+    document.getElementById('loadingText').textContent = t.loading;
+
+    var OPEN_APP = 'intent://#Intent;action=android.intent.action.MAIN;' +
+      'category=android.intent.category.LAUNCHER;package=org.siyana.app;end';
+
+    function show(title, text, withApp) {
+      document.getElementById('loading').classList.add('hidden');
+      document.getElementById('resetForm').classList.add('hidden');
+      document.getElementById('message').classList.remove('hidden');
+      document.getElementById('title').textContent = title;
+      document.getElementById('text').textContent = text;
+      var a = document.getElementById('openApp');
+      if (withApp) {
+        a.textContent = t.openApp;
+        a.href = OPEN_APP;
+        a.classList.remove('hidden');
+      }
+    }
+
+    if (!mode || !code || !apiKey) {
+      show(t.unknownTitle, t.unknownText, true);
+    } else {
+      firebase.initializeApp({ apiKey: apiKey, authDomain: 'siyana-62bfd.firebaseapp.com' });
+      var auth = firebase.auth();
+
+      if (mode === 'verifyEmail') {
+        auth.applyActionCode(code)
+          .then(function () { show(t.verifiedTitle, t.verifiedText, true); })
+          .catch(function () { show(t.invalidTitle, t.invalidText, true); });
+
+      } else if (mode === 'resetPassword') {
+        auth.verifyPasswordResetCode(code).then(function (email) {
+          document.getElementById('loading').classList.add('hidden');
+          var form = document.getElementById('resetForm');
+          form.classList.remove('hidden');
+          document.getElementById('resetTitle').textContent = t.resetTitle;
+          document.getElementById('resetText').textContent = t.resetText + email + '.';
+          document.getElementById('pw1').placeholder = t.pw1;
+          document.getElementById('pw2').placeholder = t.pw2;
+          document.getElementById('resetButton').textContent = t.resetButton;
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var p1 = document.getElementById('pw1').value;
+            var p2 = document.getElementById('pw2').value;
+            var err = document.getElementById('resetError');
+            if (p1.length < 6) { err.textContent = t.tooShort; return; }
+            if (p1 !== p2) { err.textContent = t.mismatch; return; }
+            err.textContent = '';
+            auth.confirmPasswordReset(code, p1)
+              .then(function () { show(t.resetDoneTitle, t.resetDoneText, true); })
+              .catch(function (error) {
+                if (error && error.code === 'auth/weak-password') { err.textContent = t.weak; }
+                else { show(t.invalidTitle, t.invalidText, true); }
+              });
+          });
+        }).catch(function () { show(t.invalidTitle, t.invalidText, true); });
+
+      } else if (mode === 'recoverEmail') {
+        auth.applyActionCode(code)
+          .then(function () { show(t.recoverTitle, t.recoverText, true); })
+          .catch(function () { show(t.invalidTitle, t.invalidText, true); });
+
+      } else {
+        show(t.unknownTitle, t.unknownText, true);
+      }
+    }
+  </script>
+</body>
+</html>
