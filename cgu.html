@@ -1,30 +1,57 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Conditions générales d'utilisation — Siyana</title>
+  <meta name="description" content="Les conditions générales d&#x27;utilisation de Siyana.">
+  <link rel="alternate" hreflang="fr" href="https://www.siyana.org/cgu">
+  <link rel="alternate" hreflang="ar" href="https://www.siyana.org/ar/cgu">
+  <link rel="alternate" hreflang="en" href="https://www.siyana.org/en/cgu">
   <style>
+    :root { color-scheme: light; }
     body { margin: 0; background: #F5F1E8; color: #1F1E1B;
       font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; }
-    main { max-width: 760px; margin: 0 auto; padding: 32px 22px 60px; }
+    html[dir="rtl"] body { font-family: "Noto Naskh Arabic", "Segoe UI", Tahoma, Arial, sans-serif; line-height: 1.85; }
+    main { max-width: 760px; margin: 0 auto; padding: 18px 22px 60px; }
+    .langs { text-align: end; font-size: 14px; margin-bottom: 10px; }
+    .langs a, .langs span { margin-inline-start: 12px; }
+    .langs span { font-weight: 700; color: #59633B; }
     header { text-align: center; margin-bottom: 28px; }
     header img { width: 72px; height: 72px; }
+    header.home img { width: 96px; height: 96px; }
     h1 { font-size: 26px; margin: 12px 0 4px; }
+    header.home h1 { font-size: 34px; font-family: Georgia, serif; font-weight: 500; }
+    .tagline { color: #59633B; font-size: 17px; }
+    .tagline-ar { color: #7D786E; font-size: 18px; margin-top: 2px; }
     .date { color: #7D786E; font-size: 14px; }
-    h2 { font-size: 19px; margin: 24px 0 8px; color: #59633B; }
+    h2 { font-size: 19px; margin: 6px 0 8px; color: #59633B; }
+    h2.part { font-size: 21px; margin: 30px 0 12px; color: #1F1E1B; font-family: Georgia, serif; font-weight: 500; }
+    h3 { font-size: 16px; margin: 10px 0 6px; color: #3A372F; }
+    section h3:first-child { color: #59633B; margin-top: 4px; }
     section { background: #FFFEFA; border: 1px solid #E4D8C2; border-radius: 18px;
-      padding: 6px 22px 16px; margin-bottom: 16px; }
-    ul { padding-left: 20px; }
+      padding: 14px 22px 12px; margin-bottom: 16px; }
+    ul, ol { padding-inline-start: 20px; padding-left: unset; }
     li { margin-bottom: 6px; }
+    li.sub { margin-inline-start: 20px; list-style: circle; }
+    details { border-top: 1px solid #EFE6D4; padding: 8px 0; }
+    summary { cursor: pointer; font-weight: 600; }
+    details p { margin: 8px 0 4px; color: #3A372F; }
+    .note { background: #FCEBD5; border-radius: 12px; padding: 8px 14px; font-size: 13.5px; color: #5E584D; }
+    .small { text-align: center; color: #7D786E; font-size: 12px; margin-top: 18px; }
+    .soon { text-align: center; color: #59633B; font-weight: 600; margin: 28px 0 8px; }
+    .signature { text-align: center; color: #7D786E; font-size: 14px; }
     a { color: #59633B; }
-    nav { text-align: center; font-size: 14px; margin-top: 30px; line-height: 2; }
+    a.button { display: inline-block; background: #59633B; color: #fff; text-decoration: none;
+      padding: 12px 20px; border-radius: 14px; font-weight: 600; margin-top: 6px; }
+    nav { text-align: center; font-size: 14px; margin-top: 34px; line-height: 2; }
     nav a { margin: 0 8px; white-space: nowrap; }
     footer { text-align: center; color: #7D786E; font-size: 13px; margin-top: 14px; }
   </style>
 </head>
 <body>
 <main>
+  <div class="langs"><span>Français</span> <a href="/ar/cgu" hreflang="ar" lang="ar">العربية</a> <a href="/en/cgu" hreflang="en" lang="en">English</a></div>
   <header>
     <img src="/siyana-logo.png" alt="" onerror="this.style.display='none'">
     <h1>Conditions générales d'utilisation</h1>
@@ -35,7 +62,7 @@
     <h2>1. Objet</h2>
     <p>Les présentes conditions générales d'utilisation (« CGU ») encadrent l'utilisation de l'application Siyana et du site siyana.org. Siyana permet aux imams et aux intervenants d'enregistrer et de publier des prêches, conférences, cours et rappels, et aux fidèles de les écouter.</p>
     <p>Siyana est éditée par Farid Laadjel, entrepreneur individuel (voir les <a href="/mentions-legales">mentions légales</a>). Dans ces CGU, « nous » désigne Siyana et son éditeur.</p>
-    <p>Utiliser Siyana, c'est accepter les présentes CGU, ainsi que la charte de Siyana, consultable dans l'application (Aide et support). En cas de désaccord, merci de ne pas utiliser l'application.</p>
+    <p>Utiliser Siyana, c'est accepter les présentes CGU, ainsi que la charte de Siyana, consultable dans l'application (Aide et support) et sur <a href="/charte">ce site</a>. En cas de désaccord, merci de ne pas utiliser l'application.</p>
   </section>
 
   <section>
@@ -175,9 +202,13 @@
 
   <nav>
     <a href="/">Accueil</a>
+    <a href="/a-propos">Qui sommes-nous</a>
+    <a href="/faq">Questions fréquentes</a>
+    <a href="/charte">Charte</a>
     <a href="/confidentialite">Confidentialité</a>
     <a href="/mentions-legales">Mentions légales</a>
     <a href="/supprimer-compte">Supprimer mon compte</a>
+    <a href="mailto:contact@siyana.org">contact@siyana.org</a>
   </nav>
   <footer>La famille Siyana</footer>
 </main>

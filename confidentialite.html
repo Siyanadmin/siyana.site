@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Politique de confidentialité — Siyana</title>
+  <meta name="description" content="Comment Siyana traite vos données personnelles.">
+  <link rel="alternate" hreflang="fr" href="https://www.siyana.org/confidentialite">
+  <link rel="alternate" hreflang="ar" href="https://www.siyana.org/ar/confidentialite">
+  <link rel="alternate" hreflang="en" href="https://www.siyana.org/en/confidentialite">
   <style>
+    :root { color-scheme: light; }
     body { margin: 0; background: #F5F1E8; color: #1F1E1B;
       font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; }
-    main { max-width: 760px; margin: 0 auto; padding: 32px 22px 60px; }
+    html[dir="rtl"] body { font-family: "Noto Naskh Arabic", "Segoe UI", Tahoma, Arial, sans-serif; line-height: 1.85; }
+    main { max-width: 760px; margin: 0 auto; padding: 18px 22px 60px; }
+    .langs { text-align: end; font-size: 14px; margin-bottom: 10px; }
+    .langs a, .langs span { margin-inline-start: 12px; }
+    .langs span { font-weight: 700; color: #59633B; }
     header { text-align: center; margin-bottom: 28px; }
     header img { width: 72px; height: 72px; }
+    header.home img { width: 96px; height: 96px; }
     h1 { font-size: 26px; margin: 12px 0 4px; }
+    header.home h1 { font-size: 34px; font-family: Georgia, serif; font-weight: 500; }
+    .tagline { color: #59633B; font-size: 17px; }
+    .tagline-ar { color: #7D786E; font-size: 18px; margin-top: 2px; }
     .date { color: #7D786E; font-size: 14px; }
-    h2 { font-size: 19px; margin: 32px 0 8px; color: #59633B; }
+    h2 { font-size: 19px; margin: 6px 0 8px; color: #59633B; }
+    h2.part { font-size: 21px; margin: 30px 0 12px; color: #1F1E1B; font-family: Georgia, serif; font-weight: 500; }
+    h3 { font-size: 16px; margin: 10px 0 6px; color: #3A372F; }
+    section h3:first-child { color: #59633B; margin-top: 4px; }
     section { background: #FFFEFA; border: 1px solid #E4D8C2; border-radius: 18px;
-      padding: 6px 22px 16px; margin-bottom: 16px; }
-    ul { padding-left: 20px; }
+      padding: 14px 22px 12px; margin-bottom: 16px; }
+    ul, ol { padding-inline-start: 20px; padding-left: unset; }
     li { margin-bottom: 6px; }
-    .todo { background: #FCEBD5; padding: 1px 6px; border-radius: 6px; }
+    li.sub { margin-inline-start: 20px; list-style: circle; }
+    details { border-top: 1px solid #EFE6D4; padding: 8px 0; }
+    summary { cursor: pointer; font-weight: 600; }
+    details p { margin: 8px 0 4px; color: #3A372F; }
+    .note { background: #FCEBD5; border-radius: 12px; padding: 8px 14px; font-size: 13.5px; color: #5E584D; }
+    .small { text-align: center; color: #7D786E; font-size: 12px; margin-top: 18px; }
+    .soon { text-align: center; color: #59633B; font-weight: 600; margin: 28px 0 8px; }
+    .signature { text-align: center; color: #7D786E; font-size: 14px; }
     a { color: #59633B; }
-    footer { text-align: center; color: #7D786E; font-size: 13px; margin-top: 30px; }
+    a.button { display: inline-block; background: #59633B; color: #fff; text-decoration: none;
+      padding: 12px 20px; border-radius: 14px; font-weight: 600; margin-top: 6px; }
+    nav { text-align: center; font-size: 14px; margin-top: 34px; line-height: 2; }
+    nav a { margin: 0 8px; white-space: nowrap; }
+    footer { text-align: center; color: #7D786E; font-size: 13px; margin-top: 14px; }
   </style>
 </head>
 <body>
 <main>
+  <div class="langs"><span>Français</span> <a href="/ar/confidentialite" hreflang="ar" lang="ar">العربية</a> <a href="/en/confidentialite" hreflang="en" lang="en">English</a></div>
   <header>
     <img src="/siyana-logo.png" alt="" onerror="this.style.display='none'">
     <h1>Politique de confidentialité</h1>
@@ -128,7 +156,19 @@
     <p>Nous pourrons faire évoluer cette politique. En cas de changement important, nous vous en informerons dans l'application.</p>
   </section>
 
-  <footer><a href="/">Accueil</a> · <a href="/cgu">Conditions d'utilisation</a> · <a href="/mentions-legales">Mentions légales</a><br><br>La famille Siyana<br><span style="font-size:12px;">Responsable du traitement : Farid Laadjel, entrepreneur individuel (EI), SIRET 788 621 175 00033, 2 allée d’Auvergne, 78170 La Celle-Saint-Cloud.</span></footer>
+  <p class="small">Responsable du traitement : Farid Laadjel, entrepreneur individuel (EI), SIRET 788 621 175 00033, 2 allée d’Auvergne, 78170 La Celle-Saint-Cloud.</p>
+
+  <nav>
+    <a href="/">Accueil</a>
+    <a href="/a-propos">Qui sommes-nous</a>
+    <a href="/faq">Questions fréquentes</a>
+    <a href="/charte">Charte</a>
+    <a href="/cgu">Conditions d'utilisation</a>
+    <a href="/mentions-legales">Mentions légales</a>
+    <a href="/supprimer-compte">Supprimer mon compte</a>
+    <a href="mailto:contact@siyana.org">contact@siyana.org</a>
+  </nav>
+  <footer>La famille Siyana</footer>
 </main>
 </body>
 </html>

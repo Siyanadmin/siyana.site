@@ -1,70 +1,95 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Qui sommes-nous — Siyana</title>
-  <meta name="description" content="Qui sommes-nous et l'esprit de Siyana : une bibliothèque de la parole islamique, sans publicité, sans réseau social, au service de la transmission du savoir.">
+  <title>Qui sommes-nous ? — Siyana</title>
+  <meta name="description" content="Qui sommes-nous">
+  <link rel="alternate" hreflang="fr" href="https://www.siyana.org/a-propos">
+  <link rel="alternate" hreflang="ar" href="https://www.siyana.org/ar/a-propos">
+  <link rel="alternate" hreflang="en" href="https://www.siyana.org/en/a-propos">
   <style>
+    :root { color-scheme: light; }
     body { margin: 0; background: #F5F1E8; color: #1F1E1B;
       font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; }
-    main { max-width: 720px; margin: 0 auto; padding: 32px 22px 60px; }
+    html[dir="rtl"] body { font-family: "Noto Naskh Arabic", "Segoe UI", Tahoma, Arial, sans-serif; line-height: 1.85; }
+    main { max-width: 760px; margin: 0 auto; padding: 18px 22px 60px; }
+    .langs { text-align: end; font-size: 14px; margin-bottom: 10px; }
+    .langs a, .langs span { margin-inline-start: 12px; }
+    .langs span { font-weight: 700; color: #59633B; }
     header { text-align: center; margin-bottom: 28px; }
     header img { width: 72px; height: 72px; }
+    header.home img { width: 96px; height: 96px; }
     h1 { font-size: 26px; margin: 12px 0 4px; }
+    header.home h1 { font-size: 34px; font-family: Georgia, serif; font-weight: 500; }
+    .tagline { color: #59633B; font-size: 17px; }
+    .tagline-ar { color: #7D786E; font-size: 18px; margin-top: 2px; }
+    .date { color: #7D786E; font-size: 14px; }
     h2 { font-size: 19px; margin: 6px 0 8px; color: #59633B; }
+    h2.part { font-size: 21px; margin: 30px 0 12px; color: #1F1E1B; font-family: Georgia, serif; font-weight: 500; }
+    h3 { font-size: 16px; margin: 10px 0 6px; color: #3A372F; }
+    section h3:first-child { color: #59633B; margin-top: 4px; }
     section { background: #FFFEFA; border: 1px solid #E4D8C2; border-radius: 18px;
-      padding: 16px 22px 14px; margin-bottom: 16px; }
-    ul { padding-left: 20px; margin: 6px 0; }
+      padding: 14px 22px 12px; margin-bottom: 16px; }
+    ul, ol { padding-inline-start: 20px; padding-left: unset; }
     li { margin-bottom: 6px; }
+    li.sub { margin-inline-start: 20px; list-style: circle; }
+    details { border-top: 1px solid #EFE6D4; padding: 8px 0; }
+    summary { cursor: pointer; font-weight: 600; }
+    details p { margin: 8px 0 4px; color: #3A372F; }
+    .note { background: #FCEBD5; border-radius: 12px; padding: 8px 14px; font-size: 13.5px; color: #5E584D; }
+    .small { text-align: center; color: #7D786E; font-size: 12px; margin-top: 18px; }
+    .soon { text-align: center; color: #59633B; font-weight: 600; margin: 28px 0 8px; }
+    .signature { text-align: center; color: #7D786E; font-size: 14px; }
     a { color: #59633B; }
-    nav { text-align: center; font-size: 14px; margin-top: 30px; line-height: 2; }
+    a.button { display: inline-block; background: #59633B; color: #fff; text-decoration: none;
+      padding: 12px 20px; border-radius: 14px; font-weight: 600; margin-top: 6px; }
+    nav { text-align: center; font-size: 14px; margin-top: 34px; line-height: 2; }
     nav a { margin: 0 8px; white-space: nowrap; }
     footer { text-align: center; color: #7D786E; font-size: 13px; margin-top: 14px; }
   </style>
 </head>
 <body>
 <main>
+  <div class="langs"><span>Français</span> <a href="/ar/a-propos" hreflang="ar" lang="ar">العربية</a> <a href="/en/a-propos" hreflang="en" lang="en">English</a></div>
   <header>
     <img src="/siyana-logo.png" alt="" onerror="this.style.display='none'">
     <h1>Qui sommes-nous ?</h1>
   </header>
 
   <section>
-    <h2>La famille Siyana</h2>
-    <p>Siyana est née d'un constat simple : chaque vendredi, dans chaque mosquée, une parole est transmise, puis se perd. Quand elle circule, c'est souvent sans contexte, coupée, sans que son auteur l'ait voulu.</p>
-    <p>Nous avons voulu offrir à cette parole un lieu digne d'elle : une bibliothèque où les imams et les intervenants publient eux-mêmes leurs prêches, conférences, cours et rappels, et où chacun peut les écouter dans la sérénité.</p>
-    <p>Siyana est un projet indépendant. Il n'appartient à aucune mosquée, à aucune fédération ni à aucun courant, et ne vit d'aucune publicité.</p>
-  </section>
+      <h2>La famille Siyana</h2>
+      <p>Siyana est née d'un constat simple : chaque vendredi, dans chaque mosquée, une parole est transmise, puis se perd. Quand elle circule, c'est souvent sans contexte, coupée, sans que son auteur l'ait voulu.</p>
+      <p>Nous avons voulu offrir à cette parole un lieu digne d'elle : une bibliothèque où les imams et les intervenants publient eux-mêmes leurs prêches, conférences, cours et rappels, et où chacun peut les écouter dans la sérénité.</p>
+      <p>Siyana est un projet indépendant. Il n'appartient à aucune mosquée, à aucune fédération ni à aucun courant, et ne vit d'aucune publicité.</p>
+    </section>
 
-  <section>
-    <h2>L'esprit de Siyana</h2>
-    <ul>
+    <section>
+      <h2>L'esprit de Siyana</h2>
+      <ul>
       <li><strong>Un lieu d'écoute, pas un réseau social</strong> : ni commentaires, ni messagerie, ni compteur de likes.</li>
       <li><strong>Aucune publicité</strong>, aucune revente de données.</li>
       <li><strong>L'égalité entre tous</strong> : aucun algorithme ne met un contenu en avant, tout est présenté du plus récent au plus ancien.</li>
       <li><strong>La neutralité</strong> : Siyana ne prend parti pour aucun courant, aucune mosquée ni aucun intervenant, et s'en remet à sa charte.</li>
       <li><strong>La confiance</strong> : chaque imam et chaque intervenant est vérifié par notre équipe, en lien avec une mosquée garante. Chaque signalement est examiné par un humain.</li>
       <li><strong>Le respect de la parole</strong> : l'imam reste propriétaire de ses contenus et décide de leur partage. Un prêche s'écoute avec attention, comme à la mosquée.</li>
-    </ul>
-  </section>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Comment Siyana vit-elle ?</h2>
-    <p>L'écoute est gratuite pour tous. Siyana est financée uniquement par la cotisation annuelle des imams et des intervenants, que chaque fidèle peut aussi prendre en charge à leur place par une Sadaqa.</p>
-  </section>
-
-  <section>
-    <h2>Nous écrire</h2>
-    <p><a href="mailto:contact@siyana.org">contact@siyana.org</a></p>
-  </section>
+    <section>
+      <h2>Comment Siyana vit-elle ?</h2>
+      <p>L'écoute est gratuite pour tous. Siyana est financée uniquement par la cotisation annuelle des imams et des intervenants, que chaque fidèle peut aussi prendre en charge à leur place par une Sadaqa.</p>
+    </section>
 
   <nav>
     <a href="/">Accueil</a>
     <a href="/faq">Questions fréquentes</a>
+    <a href="/charte">Charte</a>
     <a href="/cgu">Conditions d'utilisation</a>
     <a href="/confidentialite">Confidentialité</a>
     <a href="/mentions-legales">Mentions légales</a>
+    <a href="/supprimer-compte">Supprimer mon compte</a>
+    <a href="mailto:contact@siyana.org">contact@siyana.org</a>
   </nav>
   <footer>La famille Siyana</footer>
 </main>
