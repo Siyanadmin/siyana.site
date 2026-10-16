@@ -80,6 +80,53 @@
         recoverText: 'Votre ancienne adresse e-mail a été rétablie sur votre compte.',
         unknownTitle: 'Lien incomplet',
         unknownText: 'Ce lien est incomplet. Ouvrez Siyana pour recommencer.'
+      },
+      // Arabe et anglais (15 oct).
+      ar: {
+        dir: 'rtl',
+        loading: 'لحظة…',
+        verifiedTitle: 'تم تأكيد بريدك الإلكتروني',
+        verifiedText: 'شكرًا! يمكنك العودة إلى تطبيق Siyana.',
+        openApp: 'فتح Siyana',
+        invalidTitle: 'هذا الرابط لم يعد صالحًا',
+        invalidText: 'انتهت صلاحيته أو سبق استعماله. افتح Siyana لتلقّي رابط جديد.',
+        resetTitle: 'كلمة مرور جديدة',
+        resetText: 'اختر كلمة مرور جديدة للحساب ',
+        pw1: 'كلمة المرور الجديدة',
+        pw2: 'تأكيد كلمة المرور',
+        resetButton: 'حفظ',
+        tooShort: 'يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل.',
+        mismatch: 'كلمتا المرور غير متطابقتين.',
+        weak: 'كلمة المرور هذه ضعيفة جدًا، اختر غيرها.',
+        resetDoneTitle: 'تم تغيير كلمة المرور',
+        resetDoneText: 'يمكنك تسجيل الدخول إلى Siyana بكلمة المرور الجديدة.',
+        recoverTitle: 'تمت استعادة البريد الإلكتروني',
+        recoverText: 'تمت استعادة بريدك الإلكتروني السابق على حسابك.',
+        unknownTitle: 'رابط ناقص',
+        unknownText: 'هذا الرابط ناقص. افتح Siyana للمحاولة من جديد.'
+      },
+      en: {
+        dir: 'ltr',
+        loading: 'One moment…',
+        verifiedTitle: 'Your address is confirmed',
+        verifiedText: 'Thank you! You can go back to the Siyana app.',
+        openApp: 'Open Siyana',
+        invalidTitle: 'This link is no longer valid',
+        invalidText: 'It has expired or has already been used. Open Siyana to get a new one.',
+        resetTitle: 'New password',
+        resetText: 'Choose a new password for the account ',
+        pw1: 'New password',
+        pw2: 'Confirm the password',
+        resetButton: 'Save',
+        tooShort: 'The password must be at least 6 characters long.',
+        mismatch: 'The two passwords do not match.',
+        weak: 'This password is too weak, choose another one.',
+        resetDoneTitle: 'Password changed',
+        resetDoneText: 'You can sign in to Siyana with your new password.',
+        recoverTitle: 'Address restored',
+        recoverText: 'Your previous email address has been restored on your account.',
+        unknownTitle: 'Incomplete link',
+        unknownText: 'This link is incomplete. Open Siyana to start again.'
       }
     };
 
@@ -87,7 +134,9 @@
     var mode = params.get('mode');
     var code = params.get('oobCode');
     var apiKey = params.get('apiKey');
-    var t = TEXTS[params.get('lang')] || TEXTS.fr;
+    var lang = TEXTS[params.get('lang')] ? params.get('lang') : 'fr';
+    var t = TEXTS[lang];
+    document.documentElement.lang = lang;
     document.documentElement.dir = t.dir;
     document.getElementById('loadingText').textContent = t.loading;
 
