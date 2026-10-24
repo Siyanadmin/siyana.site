@@ -48,6 +48,13 @@
     nav a { margin: 0 8px; white-space: nowrap; }
     footer { text-align: center; color: #7D786E; font-size: 13px; margin-top: 14px; }
     .play { text-align: center; margin: -10px 0 24px; }
+    .shots-wrap { padding: 14px 0 10px; }
+    .shots-wrap h2 { padding: 0 22px; }
+    .shots { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 4px 22px 12px; -webkit-overflow-scrolling: touch; }
+    .shots img { flex: 0 0 auto; width: 220px; height: auto; border-radius: 14px;
+      scroll-snap-align: center; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+    .shots-hint { text-align: center; color: #7D786E; font-size: 12.5px; margin: 0; }
     .play img { width: 200px; height: auto; }
     .play-soon { display: inline-block; border: 1.5px solid #59633B; color: #59633B; font-weight: 600;
       padding: 10px 20px; border-radius: 14px; font-size: 15px; }
@@ -67,6 +74,12 @@
   <section>
     <h2>Une bibliothèque de la parole</h2>
     <p>Siyana réunit les prêches, conférences, cours et rappels publiés par des imams et des intervenants. Un lieu d'écoute pensé pour la transmission du savoir et la préservation de la parole, dans la sérénité.</p>
+  </section>
+
+  <section class="shots-wrap">
+    <h2>Aperçu de l'application</h2>
+    <div class="shots"><img src="/captures/bibliotheque.jpg" alt="La bibliothèque" width="600" height="1066" loading="lazy"><img src="/captures/preches.jpg" alt="Les prêches" width="600" height="1066" loading="lazy"><img src="/captures/lecteur.jpg" alt="Le lecteur" width="600" height="1066" loading="lazy"><img src="/captures/mosquee.jpg" alt="La page d&#x27;une mosquée" width="600" height="1066" loading="lazy"><img src="/captures/favoris.jpg" alt="Les imams favoris" width="600" height="1066" loading="lazy"><img src="/captures/enregistrement.jpg" alt="L&#x27;enregistrement d&#x27;un prêche" width="600" height="1066" loading="lazy"></div>
+    <p class="shots-hint">Faites défiler pour voir les autres écrans.</p>
   </section>
 
   <section>

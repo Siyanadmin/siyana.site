@@ -48,6 +48,13 @@
     nav a { margin: 0 8px; white-space: nowrap; }
     footer { text-align: center; color: #7D786E; font-size: 13px; margin-top: 14px; }
     .play { text-align: center; margin: -10px 0 24px; }
+    .shots-wrap { padding: 14px 0 10px; }
+    .shots-wrap h2 { padding: 0 22px; }
+    .shots { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 4px 22px 12px; -webkit-overflow-scrolling: touch; }
+    .shots img { flex: 0 0 auto; width: 220px; height: auto; border-radius: 14px;
+      scroll-snap-align: center; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+    .shots-hint { text-align: center; color: #7D786E; font-size: 12.5px; margin: 0; }
     .play img { width: 200px; height: auto; }
     .play-soon { display: inline-block; border: 1.5px solid #59633B; color: #59633B; font-weight: 600;
       padding: 10px 20px; border-radius: 14px; font-size: 15px; }
@@ -67,6 +74,12 @@
   <section>
     <h2>A library of the spoken word</h2>
     <p>Siyana brings together sermons, lectures, classes and reminders published by imams and speakers. A place for listening, designed for passing on knowledge and preserving the spoken word, in serenity.</p>
+  </section>
+
+  <section class="shots-wrap">
+    <h2>A look at the app</h2>
+    <div class="shots"><img src="/captures/bibliotheque.jpg" alt="The library" width="600" height="1066" loading="lazy"><img src="/captures/preches.jpg" alt="Sermons" width="600" height="1066" loading="lazy"><img src="/captures/lecteur.jpg" alt="The player" width="600" height="1066" loading="lazy"><img src="/captures/mosquee.jpg" alt="A mosque page" width="600" height="1066" loading="lazy"><img src="/captures/favoris.jpg" alt="Favourite imams" width="600" height="1066" loading="lazy"><img src="/captures/enregistrement.jpg" alt="Recording a sermon" width="600" height="1066" loading="lazy"></div>
+    <p class="shots-hint">Swipe to see the other screens.</p>
   </section>
 
   <section>
